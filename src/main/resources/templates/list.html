@@ -9,12 +9,12 @@
 <a href="/add">Add a Task</a><br />
 <table>
     <tr>
-        <th>Title</th>
-        <th>Instructor</th>
-        <th>Credits</th>
+        <th>Name</th>
+        <th>Priority</th>
+        <th>Due-Date</th>
         <td>Actions</td>
     </tr>
-    <tr th:each="task : ${courses}">
+    <tr th:each="task : ${tasks}">
         <td th:text="${task.name}"></td>
         <td th:text="${task.priority}"></td>
         <td th:text="${task.duedate}"></td>

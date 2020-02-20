@@ -15,47 +15,48 @@ import javax.validation.Valid;
 public class HomeController {
 
     @Autowired
-    CourseRepository courseRepository;
+    TaskRepository taskRepository;
 
     @RequestMapping("/")
     public String listCourses(Model model){
-        model.addAttribute("courses", courseRepository.findAll());
+        model.addAttribute("tasks", taskRepository.findAll());
         return "list";
     }
 
     @GetMapping("/add")
     public String courseForm(Model model){
         model.addAttribute("course", new Task());
-        return "courseform";
+        // model.addAttribute("course", new Task());
+        return "taskform";
     }
 
     @PostMapping("/process")
     public String processForm(@Valid Task task,
                               BindingResult result){
         if (result.hasErrors()){
-            return "courseform";
+            return "taskform";
         }
-        courseRepository.save(task);
+        taskRepository.save(task);
         return "redirect:/";
     }
 
     @RequestMapping("/detail/{id}")
     public String showCourse(@PathVariable("id") long id, Model model)
     {
-        model.addAttribute("course", courseRepository.findById(id).get());
+        model.addAttribute("course", taskRepository.findById(id).get());
         return "show";
     }
 
     @RequestMapping("/update/{id}")
     public String updateCourse(@PathVariable("id") long id,
                                Model model){
-        model.addAttribute("course", courseRepository.findById(id).get());
-        return "courseform";
+        model.addAttribute("course", taskRepository.findById(id).get());
+        return "taskform";
     }
 
     @RequestMapping("/delete/{id}")
     public String delCourse(@PathVariable("id") long id){
-        courseRepository.deleteById(id);
+        taskRepository.deleteById(id);
         return "redirect:/";
     }
 
