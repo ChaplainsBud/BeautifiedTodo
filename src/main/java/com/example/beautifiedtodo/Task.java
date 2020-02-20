@@ -31,6 +31,14 @@ public class Task {
     @Size(min=3)
     private String duedate;
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     @NotNull
     @Size(min=3)
     private String img;

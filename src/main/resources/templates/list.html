@@ -18,6 +18,7 @@
         <td th:text="${task.name}"></td>
         <td th:text="${task.priority}"></td>
         <td th:text="${task.duedate}"></td>
+        <td th:text="${task.img}"></td> // IMAGE?
         <td>
             <a th:href="@{/update/{id}(id=${task.id})}">Update</a>
             <a th:href="@{/detail/{id}(id=${task.id})}">Details</a>
