@@ -31,6 +31,9 @@ public class Task {
     @Size(min=3)
     private String duedate;
 
+    @NotNull
+    @Size(min=3)
+    private String img;
 
     public long getId() {
         return id;
